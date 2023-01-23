@@ -87,8 +87,8 @@ jobs:
         run: coverage-badge -o coverage.svg
       - name: Commit coverage files
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "matthiaschometon787@gmail.com"
+          git config --local user.name "MatthiasChometon"
           git add coverage.svg
           git commit -m "Add coverage badge"
           git push
