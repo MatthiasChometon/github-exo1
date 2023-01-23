@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         run: pip install bottle pytest
       - name: Run tests
-        run: pytest
+        run: pytest --doctest-modules --ignore=Bottle.py
 
   cd:
     runs-on: ubuntu-latest
