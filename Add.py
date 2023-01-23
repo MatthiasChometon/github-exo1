@@ -9,4 +9,4 @@ def add(a, b):
     >>> add(2, 3)
     {'result': 5}
     """
-    return {'result': int(a) + int(b)}
+    return {"result": int(a) + int(b)}
