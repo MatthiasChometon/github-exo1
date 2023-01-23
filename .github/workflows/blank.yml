@@ -84,14 +84,19 @@ jobs:
           pip install coverage-badge
           pytest --cov=. . --doctest-modules --ignore=Bottle.py
       - name: Generate coverage badge
-        run: coverage-badge -o coverage.svg
-      - name: Commit coverage files
-        run: |
-          git config --local user.email "matthiaschometon787@gmail.com"
-          git config --local user.name "MatthiasChometon"
-          git add coverage.svg
-          git commit -m "Add coverage badge"
-          git push
+        run: coverage-badge -o coverage.svg -f
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: push
+        uses: actions-x/commit@v6
+        with:
+          email: matthiaschometon787@gmail.com
+          name: push coverage
+          branch: master
+          files: coverage.svg
+          repository: https://github.com/MatthiasChometon/github-exo1
+          token: ${{ secrets.PUSH_TOKEN }}
+          force: true
       - name: Update README
         run: |
           echo "[![Coverage](coverage.svg)](./coverage.svg)" >> README.md
