@@ -81,6 +81,7 @@ jobs:
         run: |
           pip install pytest
           pip install pytest-cov
+          pip install coverage-badge
           pytest --cov=. . --doctest-modules --ignore=Bottle.py
       - name: Generate coverage badge
         run: coverage-badge -o coverage.svg
