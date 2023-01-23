@@ -19,6 +19,7 @@ jobs:
 
       - name: Lint with Flake8 and Black
         run: |
+          ls
           flake8 Bottle.py
           black --check Bottle.py
 
@@ -44,5 +45,4 @@ jobs:
 
       - name: Check if server is up
         run: |
-          ls
           curl -Is http://localhost:8000/ | head -n 1
